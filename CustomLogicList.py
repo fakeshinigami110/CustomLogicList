@@ -50,18 +50,18 @@ class CustomList(list):
 
         self._custom_clear_extend(arrayCopy)
         return deleted_index
-
-    def Delete_by_index(self, indexNum):
+    @staticmethod
+    def Delete_by_index(array, indexNum):
 
         inIndex = 0
         arrayCopy = []
 
-        for item in self:
+        for item in array:
             if indexNum != inIndex:
                 arrayCopy += [item]
             inIndex += 1
 
-        self._custom_clear_extend(arrayCopy)
+        array._custom_clear_extend(arrayCopy)
 
     def Display(self):
 
@@ -74,10 +74,10 @@ class CustomList(list):
                 print(item, end=" ")
             inIndex += 1
         print("]")
+    @staticmethod
+    def Append(array, value):
 
-    def Append(self, value):
-
-        self += [value]
+        array += [value]
 
     @staticmethod
     def Reverse(array):
@@ -111,10 +111,10 @@ def test_custom_list():
     deleted_index = array.Delete_by_value(4)
     print(f"After deleting value 4: {array}, deleted from index: {deleted_index}")
 
-    array.Delete_by_index(2)
+    CustomList.Delete_by_index(array,2)
     print(f"After deleting index 2: {array}")
 
-    array.Append(5)
+    array.Append(array=array ,value= 5)
     print(f"After appending 5: {array}")
 
     CustomList.Reverse(array)
