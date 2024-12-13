@@ -14,8 +14,7 @@ class Stack:
         else:
             value = self.stack[CustomList._calculate_length(self.stack) - 1]
             CustomList.Delete_by_index(self.stack, CustomList._calculate_length(self.stack) - 1)
-            return value  # Return the popped value
-
+            return value  
 
     def Peek(self):
         if CustomList._calculate_length(self.stack) > 0:
